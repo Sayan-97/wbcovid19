@@ -1,0 +1,417 @@
+ .status-line{
+                
+                position: absolute;
+                background-color: cornflowerblue;
+                box-shadow: 10px 10px 5px grey;
+                transition: 0.5s;
+                
+                
+            }
+            
+            
+            .darjeeling-status-line{
+                
+                height: 2px;
+                width: 0px;
+                right: 310px;
+                top: 80px;
+ 
+            }
+            
+            
+            .darjeeling-status-line.on{
+                
+                width: 200px;
+                
+            }
+            
+            .jalpaiguri-status-line{
+                
+                height: 2px;
+                width: 0px;
+                right: 230px;
+                top: 110px;
+                
+            }
+            
+            .jalpaiguri-status-line.on{
+                
+                width: 270px;
+                
+            }
+            
+            .cooch-behar-status-line{
+                
+                height: 2px;
+                width: 0px;
+                right: 110px;
+                top: 190px;
+                
+            }
+            
+            .cooch-behar-status-line.on{
+                
+                width: 370px;
+                
+            }
+            
+            .uttar-dinajpur-status-line{
+                
+                height: 2px;
+                width: 0px;
+                right: 375px;
+                top: 265px;
+                
+            }
+            
+            .uttar-dinajpur-status-line.on {
+                
+                width: 105px;
+                
+            }
+            
+            .dakshin-dinajpur-status-line {
+                
+                height: 2px;
+                width: 0px;
+                right: 270px;
+                top: 390px;
+                
+            }
+            
+            .dakshin-dinajpur-status-line.on{
+                
+                width: 210px;
+                
+            }
+            
+            .malda-status-line{
+                
+                height: 2px;
+                width: 0px;
+                right: 370px;
+                top: 450px;
+                
+            }
+            
+            .malda-status-line.on{
+                
+                width: 110px;
+                
+            }
+            
+            #birbhum-status-line1 {
+                
+                height: 0px;
+                width: 2px;
+                left: 350px;
+                bottom: 496px;
+                
+            }
+            
+            #birbhum-status-line1.on{
+                
+                height: 170px;
+                
+            }
+            
+            #birbhum-status-line2{
+                
+                height: 2px;
+                width: 0px;
+                right: 450px;
+                top: 530px;
+                
+            }
+            
+            #birbhum-status-line2.on{
+                
+                width: 50px;
+                
+            }
+            
+            #murshidabad-status-line1{
+                
+                width: 2px;
+                height: 0px;
+                left: 465px;
+                bottom: 546px;
+                
+            }
+            
+            #murshidabad-status-line1.on{
+                
+                height: 150px;
+                
+            }
+            
+            #murshidabad-status-line2{
+                
+                top: 500px;
+                right: 335px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            #murshidabad-status-line2.on{
+                
+                width: 165px;
+                
+            }
+            
+            #purba-bardhaman-status-line1{
+                
+                bottom: 376px;
+                left: 415px;
+                width: 2px;
+                height: 0px;
+            }
+            
+            #purba-bardhaman-status-line1.on{
+                
+                height: 210px;
+                
+            }
+            
+            #purba-bardhaman-status-line2{
+                
+                top: 610px;
+                right: 385px;
+                width: 0px;
+                height: 2px;
+                
+            }
+            
+            #purba-bardhaman-status-line2.on{
+                
+                width: 95px;
+            }
+            
+            
+            .nadia-status-line{
+                
+                top: 790px;
+                right: 270px;
+                width: 0px;
+                height: 2px;
+                
+            }
+            
+            .nadia-status-line.on{
+                
+                width: 140px;
+                
+            }
+            
+            .purulia-status-line{
+                
+                left: 105px;
+                top: 830px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            .purulia-status-line.on{
+                
+                width: 195px;
+                
+            }
+            
+            .bankura-status-line{
+                
+                left: 255px;
+                top: 850px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            .bankura-status-line.on{
+                
+                width: 195px;
+                
+            }
+
+
+.hooghly-status-line{
+                
+                bottom: 286px;
+                left: 440px;
+                width: 2px;
+                height: 0px;
+                
+            }
+            
+            .hooghly-status-line.on{
+                
+                height: 110px;
+                
+            }
+            
+            .north-24-parganas-status-line{
+                
+                top: 1010px;
+                right: 205px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            .north-24-parganas-status-line.on{
+                
+                width: 145px;
+            }
+            
+            .pashchim-medinipur-status-line{
+                
+                top: 1015px;
+                left: 315px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            .pashchim-medinipur-status-line.on{
+                
+                width: 135px;
+                
+            }
+            
+            .howrah-status-line{
+                
+                bottom: 214px;
+                left: 438px;
+                width: 2px;
+                height: 0px;
+                
+            }
+            
+            .howrah-status-line.on{
+                
+                height: 62px;
+                
+            }
+            
+            
+            .kolkata-status-line{
+                
+                top: 970px;
+                right: 292px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            .kolkata-status-line.on{
+                
+                width: 108px;
+                
+            }
+            
+            .south-24-parganas-status-line{
+                
+                top: 1050px;
+                right: 290px;
+                width: 0px;
+                height: 2px;
+                
+            }
+            
+            .south-24-parganas-status-line.on{
+                
+                width: 160px;
+                
+            }
+            
+            .purbo-medinipur-status-line{
+                
+                bottom: 96px;
+                left: 380px;
+                width: 2px;
+                height: 0px;
+            }
+            
+            .purbo-medinipur-status-line.on{
+                
+                height: 180px;
+                
+            }
+            
+            
+            .alipurduar-status-line{
+                
+                right: 90px;
+                top: 120px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            .alipurduar-status-line.on{
+                
+                width: 360px;
+                
+            }
+            
+            #kalimpong-status-line1{
+                
+                right: 250px;
+                top: 40px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            #kalimpong-status-line1.on{
+                
+                width: 320px;
+                
+            }
+            
+            #kalimpong-status-line2{
+                
+                top: 40px;
+                right: 570px;
+                width: 2px;
+                height: 0px;
+                
+            }
+            
+            #kalimpong-status-line2.on{
+                
+                height: 40px;
+                
+            }
+            
+            
+            .paschim-bardhaman-status-line{
+                
+                bottom: 446px;
+                left: 265px;
+                width: 2px;
+                height: 0px;
+                
+            }
+            
+            .paschim-bardhaman-status-line.on{
+                
+                height: 125px;
+                
+            }
+            
+            .jhargram-status-line{
+                
+                left: 230px;
+                top: 1020px;
+                height: 2px;
+                width: 0px;
+                
+            }
+            
+            .jhargram-status-line.on{
+                
+                width: 120px;
+                
+            }

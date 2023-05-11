@@ -1,0 +1,111 @@
+
+            
+            * {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+            
+            
+            img{
+                
+                width: 100%;
+                position: absolute;
+                transform: translate(-50%);
+                left: 50%;
+                z-index: -9;
+                
+            }
+
+ #container{
+                
+                position: relative;
+                margin: 0 auto;
+                margin-top: 50px;
+                height: 1196px;
+                width: 800px;
+                
+            }
+
+.dist-map{
+                
+                cursor: pointer;
+                
+                
+            }
+
+ body,html{
+                
+                font-family: 'Montserrat', sans-serif;
+                width: 100%;
+                margin: 0px;
+            }
+            
+            
+            th,tr{
+                
+                border: 1px solid dodgerblue;
+                
+            }
+            
+            th,td{
+                
+                width: 20%;
+                
+            }
+            
+            th:nth-child(1),td:nth-child(1){
+                
+                width: 40%;
+                
+            }
+            
+            td{
+                
+                font-weight: bold;
+                
+                
+            }
+
+            table{
+                
+                width: 90%;
+                min-width: 800px;
+                border-collapse: collapse;
+                margin: 0 auto;
+                text-align: center;
+                
+                
+                
+            }
+            
+            #data-header {
+                
+                position: sticky;
+                top: 0px;
+                background-color: white;
+                transition: opacity 0.5s;
+                
+            }
+            
+            #data-header.off{
+                
+                opacity: 0;
+                
+            }
+            
+            
+            a:any-link{
+                
+                color: tomato;
+                text-decoration: none;
+                
+            }
+            
+            a:hover{
+                
+                text-decoration: underline;
+            }

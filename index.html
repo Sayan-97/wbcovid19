@@ -1,0 +1,733 @@
+<html>
+
+    <head>
+
+        <title>WBCOVID19: West Bengal Coronavirus (COVID-19) map</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <meta name="viewport" content="width=800, initial-scale=1,user-scalable=no">
+        <meta name="viewport" content="width=800, user-scalable=no">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="stylesheets/index.css" rel="stylesheet">
+        <link href="stylesheets/status-line.css" rel="stylesheet">
+        <link href="stylesheets/status-box.css" rel="stylesheet">
+
+        <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta property="og:url" content="https://wbcovid19.online/" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="West Bengal Coronavirus (COVID-19) map" />
+        <meta property="og:description" content="Keep an eye on COVID-19 effect on West Bengal (total and district wise).Click on an area on the map to view statistics" />
+        <meta property="og:image" content="https://wbcovid19.online/data/fb_img.jpg" />
+        <meta property="og:image:width" content="664" />
+        <meta property="og:image:height" content="664" />
+        <meta name="google-site-verification" content="CW4tqXjQS7zRwCCzx_e-5k4ZdaYZhz2B87e5Dzx14vw" />
+
+
+        <style media="screen">
+
+        th,td{
+
+            width: 14%;
+
+        }
+
+        th:nth-child(1),td:nth-child(1){
+
+            width: 30%;
+
+        }
+
+        td {
+
+            color: white;
+
+        }
+
+        </style>
+
+
+    </head>
+
+
+    <body>
+
+    <script>
+
+    var extension;
+    var img = new Image();
+    img.onload = function () {
+        var result = (img.width > 0) && (img.height > 0);
+        if (result) extension = "webp";
+        else extension = "png";
+        var dynamicContents = '<img src="data/wb-map.'+extension+'" id="bg" style="z-index: -10;"><img id="main" src="data/blankmage.'+extension+'" usemap="#image-map" style="z-index: 10;"> ';
+        $("#container").prepend(dynamicContents);
+    };
+    img.onerror = function () {
+        extension = "png";
+        var dynamicContents = '<img src="data/wb-map.'+extension+'" id="bg" style="z-index: -10;"><img id="main" src="data/blankmage.'+extension+'" usemap="#image-map" style="z-index: 10;"> ';
+        $("#container").prepend(dynamicContents);
+    };
+    img.src = "data:image/webp;base64,UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==";
+
+
+        </script>
+
+
+        <div style="padding: 20px;">
+
+            <h1>West Bengal Coronavirus (COVID-19) map</h1>
+            <h3><span id="click-or-hover"></span> an area on the map to view statistics</h3>
+
+        </div>
+
+    <div id="container">
+
+    <img src="" class="hovermage" id="darjeeling-hover">
+    <div class="status-line darjeeling-status-line"></div>
+    <div id="darjeeling-status-box" class="status-box">
+
+    <p><u>Darjeeling</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+    <img src="" class="hovermage" id="jalpaiguri-hover">
+    <div class="status-line jalpaiguri-status-line"></div>
+    <div id="jalpaiguri-status-box" class="status-box">
+
+
+    <p><u>Jalpaiguri</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+    <img src="" class="hovermage" id="cooch-behar-hover">
+    <div class="status-line cooch-behar-status-line"></div>
+    <div id="cooch-behar-status-box" class="status-box">
+
+    <p><u>Cooch Behar</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+
+    </div>
+
+    <img src="" class="hovermage" id="uttar-dinajpur-hover">
+    <div class="status-line uttar-dinajpur-status-line"></div>
+    <div id="uttar-dinajpur-status-box" class="status-box">
+
+    <p><u>Uttar Dinajpur</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+
+    </div>
+
+
+
+    <img src="" class="hovermage" id="dakshin-dinajpur-hover">
+    <div class="status-line dakshin-dinajpur-status-line"></div>
+    <div id="dakshin-dinajpur-status-box" class="status-box">
+
+    <p><u>Dakshin Dinajpur</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+
+    </div>
+
+
+
+    <img src="" class="hovermage" id="malda-hover">
+    <div class="status-line malda-status-line"></div>
+    <div id="malda-status-box" class="status-box">
+
+    <p><u>Malda</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+
+    </div>
+
+
+
+    <img src="" class="hovermage" id="birbhum-hover">
+    <div class="status-line birbhum-status-line" id="birbhum-status-line1"></div>
+    <div class="status-line birbhum-status-line" id="birbhum-status-line2"></div>
+    <div id="birbhum-status-box" class="status-box ">
+
+    <p><u>Birbhum</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+
+
+    <img src="" class="hovermage" id="murshidabad-hover">
+    <div class="status-line murshidabad-status-line" id="murshidabad-status-line1"></div>
+    <div class="status-line murshidabad-status-line" id="murshidabad-status-line2"></div>
+    <div id="murshidabad-status-box" class="status-box">
+
+    <p><u>Murshidabad</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+
+
+    <img src="" class="hovermage" id="purba-bardhaman-hover">
+    <div class="status-line purba-bardhaman-status-line" id="purba-bardhaman-status-line1"></div>
+    <div class="status-line purba-bardhaman-status-line" id="purba-bardhaman-status-line2"></div>
+    <div id="purba-bardhaman-status-box" class="status-box">
+
+    <p><u>Purba Bardhaman</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+
+
+    <img src="" class="hovermage" id="nadia-hover">
+    <div class="status-line nadia-status-line"></div>
+    <div id="nadia-status-box" class="status-box">
+
+    <p><u>Nadia</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>>
+
+    </div>
+
+
+
+
+    <img src="" class="hovermage" id="purulia-hover">
+    <div class="status-line purulia-status-line"></div>
+    <div id="purulia-status-box" class="status-box">
+
+    <p><u>Purulia</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+
+    <img src="" class="hovermage" id="bankura-hover">
+    <div class="status-line bankura-status-line"></div>
+    <div id="bankura-status-box" class="status-box">
+
+    <p><u>Bankura</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+    <img src="" class="hovermage" id="hooghly-hover">
+    <div class="status-line hooghly-status-line"></div>
+    <div id="hooghly-status-box" class="status-box">
+
+    <p><u>Hooghly</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+    <img src="" class="hovermage" id="north-24-parganas-hover">
+    <div class="status-line north-24-parganas-status-line"></div>
+    <div id="north-24-parganas-status-box" class="status-box">
+
+    <p><u>North 24 Parganas</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+    <img src="" class="hovermage" id="pashchim-medinipur-hover">
+    <div class="status-line pashchim-medinipur-status-line"></div>
+    <div id="pashchim-medinipur-status-box" class="status-box">
+
+    <p><u>Paschim Medinipur</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+    <img src="" class="hovermage" id="howrah-hover">
+    <div class="status-line howrah-status-line"></div>
+    <div id="howrah-status-box" class="status-box">
+
+    <p><u>Howrah</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+    <img src="" class="hovermage" id="kolkata-hover">
+    <div class="status-line kolkata-status-line"></div>
+    <div id="kolkata-status-box" class="status-box">
+
+    <p><u>Kolkata</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+
+    <img src="" class="hovermage" id="south-24-parganas-hover">
+    <div class="status-line south-24-parganas-status-line"></div>
+    <div id="south-24-parganas-status-box" class="status-box">
+
+    <p><u>South 24 Parganas</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+
+    <img src="" class="hovermage" id="purbo-medinipur-hover">
+    <div class="status-line purbo-medinipur-status-line"></div>
+    <div id="purbo-medinipur-status-box" class="status-box">
+
+    <p><u>Purba Medinipur</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+
+    <img src="" class="hovermage" id="kalimpong-hover">
+    <div class="status-line kalimpong-status-line" id="kalimpong-status-line1"></div>
+    <div class="status-line kalimpong-status-line" id="kalimpong-status-line2"></div>
+    <div id="kalimpong-status-box" class="status-box">
+
+    <p><u>Kalimpong</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+
+    <img src="" class="hovermage" id="alipurduar-hover">
+    <div class="status-line alipurduar-status-line"></div>
+    <div id="alipurduar-status-box" class="status-box">
+
+    <p><u>Alipurduar</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+    <img src="" class="hovermage" id="paschim-bardhaman-hover">
+    <div class="status-line paschim-bardhaman-status-line"></div>
+    <div id="paschim-bardhaman-status-box" class="status-box">
+
+    <p><u>Paschim Bardhaman</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+    <img src="" class="hovermage" id="jhargram-hover">
+    <div class="status-line jhargram-status-line"></div>
+    <div id="jhargram-status-box" class="status-box">
+
+    <p><u>Jhargram</u></p>
+    <p> <span></span> active cases </p>
+    <p> <span></span> recovered </p>
+    <p> <span></span> reported deaths </p>
+
+    </div>
+
+
+        </div>
+
+    <map name="image-map">
+
+    <!-- 1. Darjeeling Area    -->
+
+     <area  alt="Darjeeling" title="Darjeeling" coords="452,52,455,62,460,71,464,83,464,90,463,99,460,110,458,121,453,132,458,142,465,145,473,154,482,160,489,156,494,145,496,134,501,126,508,119,502,106,511,99,520,94,524,87,527,80,526,69,520,59,516,46,512,33,499,24,484,24,474,20,461,20,453,22,446,17,439,10,432,3,429,10,427,17,434,30" shape="poly" class="dist-map" dist="darjeeling">
+
+    <!-- 2. Jalpaiguri Area    -->
+
+    <area alt="Jalpaiguri" title="Jalpaiguri" coords="577,108,506,110,518,97,526,87,536,76,542,66,546,57,555,57,564,62,571,52,584,47,595,47,596,53,604,48,609,52,610,58,617,60,624,58,629,62,634,65,637,71,639,77,636,83,633,91,633,99,631,106,631,113,637,116,637,124,645,128,643,135,637,138,630,138,621,138,613,141,609,145,604,150,600,156,595,163,590,171,583,171,577,170,570,172,565,175,560,169,557,164,550,161,539,154,535,151,527,146,520,141,512,136,513,124,513,118,511,109,506,110" shape="poly" class="dist-map" dist="jalpaiguri">
+
+    <!-- 3. Cooch Behar Area -->
+
+
+    <area  alt="Cooch Behar" title="Cooch Behar" coords="594,184,589,196,599,191,611,197,616,204,628,196,615,184,603,177,611,153,601,159,593,168,587,172,578,174,569,175,576,180,559,194,585,189,592,202" shape="poly" class="dist-map" dist="cooch-behar">
+    <area  alt="Cooch Behar" title="Cooch Behar" coords="693,190,729,260,732,250,735,243,741,240,735,229,735,216,741,208,749,203,754,195,761,194,766,186,774,180,776,170,777,161,762,160,746,161,728,173,724,164,717,159,715,152,707,148,697,146,691,149,683,150,672,151,662,150,651,143,630,140,619,140,612,145,608,152,617,158,625,164,631,167,641,175,644,182,649,189,648,195,649,201,652,210,652,218,657,224,663,227,670,231,674,238,679,242,686,247,695,250,704,245,712,250,717,249,724,248" shape="poly" class="dist-map" dist="cooch-behar">
+    <area  alt="Cooch Behar" title="Cooch Behar"  coords="756,210,752,218,761,218,757,203,750,200,755,196,743,203" shape="poly" class="dist-map" dist="cooch-behar">
+
+    <!-- 4. Uttar Dinajpur Area -->
+
+     <area alt="Uttar Dinajpur" title="Uttar Dinajpur" coords="514,164,499,157,504,154,511,156,519,158,522,164,528,176,520,177,503,188,495,190,485,185,481,172,477,172,484,165,491,158,494,153" shape="poly" class="dist-map" dist="uttar-dinajpur">
+    <area alt="Uttar Dinajpur" title="Uttar Dinajpur" coords="419,259,399,240,408,228,416,228,423,215,432,216,445,206,462,194,477,185,484,183,487,186,496,189,491,194,490,194,493,204,488,213,477,213,468,217,460,225,458,234,461,239,461,246,455,253,447,261,444,267,445,277,447,288,447,296,454,302,462,299,478,296,490,312,504,323,515,328,516,341,496,348,489,355,482,368,484,382,475,394,464,398,447,408,449,375,439,357,433,343,428,335,434,319,418,314,410,302,401,298,401,288,405,275,394,270,393,257,401,243" shape="poly" class="dist-map" dist="uttar-dinajpur">
+
+    <!--5. Dakshin Dinajpur  Area -->
+
+    <area  alt="Dakshin Dinajpur" title="Dakshin Dinajpur" coords="538,388,517,422,514,411,506,401,492,403,483,401,476,399,482,387,485,375,485,366,489,358,496,351,505,345,513,345,520,346,525,353,532,359,540,359,549,363,551,369,555,366,551,369,563,368,566,361,573,363,576,358,583,355,587,366,585,376,586,385,595,396,598,400,605,402,617,402,621,409,608,414,609,422,606,429,590,420,582,425,573,425,562,419,551,420,537,426,528,421,520,414" shape="poly" class="dist-map" dist="dakshin-dinajpur">
+
+    <!-- 6. Malda  Area -->
+
+    <area alt="Malda" title="Malda" coords="427,440,394,461,379,443,380,434,380,427,380,421,378,419,386,413,392,406,395,397,388,393,382,395,378,386,379,381,380,371,389,368,396,359,402,356,409,347,414,342,424,338,429,342,433,354,439,363,445,373,446,387,444,397,441,407,450,409,460,402,470,401,484,403,499,404,508,406,514,416,512,423,514,430,513,437,513,448,512,457,508,463,504,471,497,476,490,485,492,490,485,489,476,477,470,474,456,480,457,492,453,505,447,512,439,516,439,523,434,536,425,524,419,517,406,497,399,491,397,475,392,460,394,461" shape="poly" class="dist-map" dist="malda">
+
+    <!--7. Birbhum Area -->
+
+    <area alt="Birbhum" title="Birbhum" coords="348,695,384,699,403,706,408,711,404,716,404,724,401,731,403,740,406,746,411,754,411,760,406,768,396,772,386,772,374,767,365,763,354,760,343,764,332,764,320,760,309,754,300,744,291,736,282,733,271,732,259,729,247,723,222,706,244,710,260,713,268,704,285,696,287,687,276,668,288,666,293,673,302,673,312,678,318,669,324,670,327,665,324,657,328,651,337,656,340,651,345,649,354,640,361,640,356,631,350,627,356,621,364,616,370,612,376,600,380,593,381,584,382,573,381,561,384,551,395,555,400,558,405,561,411,569,412,577,408,591,415,606,420,614,417,625,410,632,398,642,396,650,399,656,396,662,392,670,388,677,388,685,386,690,379,694" shape="poly" class="dist-map" dist="birbhum">
+
+    <!--8. Murshidabad Area -->
+
+    <area  alt="Murshidabad" title="Murshidabad" coords="464,643,420,622,420,613,414,601,409,593,409,583,413,573,410,564,401,554,396,544,397,536,398,526,398,518,391,512,387,503,392,501,396,497,401,496,419,521,428,530,437,539,444,548,448,562,454,570,463,574,469,578,480,581,489,584,494,591,505,597,512,601,518,606,526,610,533,612,541,611,548,612,556,614,560,610,565,614,566,621,566,629,564,636,562,642,550,641,541,639,533,642,531,648,536,654,540,659,544,666,546,672,537,673,529,674,522,678,517,685,515,691,513,701,509,709,503,714,497,719,489,721,481,724,472,726,464,730,456,734,447,732,438,728,429,726,424,718,421,708,414,704,406,704,397,701,389,698,389,690,389,682,393,674,397,666,402,660,401,653,399,645,402,640,408,635,413,631,417,620" shape="poly" class="dist-map" dist="murshidabad">
+
+     <!--9. Purba Bardhaman Area -->
+
+    <area alt="Purba Bardhaman" title="Purba Bardhaman" coords="415,815,394,773,407,769,414,762,415,752,409,739,407,725,409,716,416,708,423,712,426,721,429,729,437,730,446,733,452,738,450,745,449,753,453,760,461,758,469,761,473,767,479,773,483,777,488,782,491,791,495,797,497,805,491,813,488,818,487,826,491,832,495,838,501,845,498,849,491,852,482,850,474,849,466,850,459,853,455,860,451,867,444,873,439,877,436,884,427,887,415,889,404,892,392,893,379,889,373,881,373,873,374,863,366,856,360,845,353,833,344,824,334,813,329,801,335,797,337,788,342,777,344,769,347,765,354,765,362,765,369,765,376,769,383,770,389,777,394,778" shape="poly" class="dist-map" dist="purba-bardhaman">
+
+    <!--10. Nadia  Area -->
+
+     <area alt="Nadia" title="Nadia" coords="515,763,549,677,551,668,541,656,535,648,537,642,549,643,556,645,560,651,564,662,570,668,574,680,571,686,569,696,554,704,542,706,542,718,536,723,541,730,537,746,535,754,543,756,552,764,555,770,562,777,570,782,573,790,582,792,571,804,574,811,568,820,560,823,567,831,557,850,557,858,557,872,552,904,535,898,528,896,518,880,513,857,504,842,495,838,488,824,494,807,501,797,492,791,490,779,480,773,472,762,463,754,454,754,449,750,454,741,460,734,475,730,488,724,499,725,505,718,516,713,518,704,522,695,521,686,528,677,535,673,548,682" shape="poly" class="dist-map" dist="nadia">
+
+    <!-- 11. Purulia Area -->
+
+    <area alt="Purulia" title="Purulia" coords="120,830,97,802,101,790,107,784,105,774,111,766,121,757,132,760,141,760,150,757,158,742,167,742,175,742,190,741,200,746,208,749,212,758,208,768,208,783,200,793,197,806,196,816,191,823,190,831,188,843,187,850,183,860,183,879,175,888,174,898,172,906,167,914,163,922,158,930,153,938,145,942,133,942,123,931,121,918,119,907,126,901,131,899,139,895,141,887,133,887,118,887,104,887,93,882,78,886,65,876,49,862,27,853,9,854,5,840,5,823,6,810,2,790,8,781,25,786,32,788,36,783,36,772,39,766,45,766,52,766,59,770,59,778,61,786,67,790,74,794,79,798,85,799,91,800" shape="poly" class="dist-map" dist="purulia">
+
+    <!--12. Bankura Area -->
+
+    <area alt="Bankura" title="Bankura" coords="250,851,189,835,189,823,195,811,197,798,201,790,204,783,207,771,210,754,210,747,220,751,225,753,231,756,248,755,257,763,261,765,272,772,281,776,291,783,301,792,317,803,341,824,355,841,359,852,368,862,374,868,371,877,365,885,357,891,352,899,343,899,333,899,319,896,305,895,293,897,280,904,270,906,263,911,254,915,244,915,239,923,244,927,245,936,240,941,236,946,232,955,227,949,221,952,213,953,203,949,197,941,186,935,177,931,166,924,169,915,176,902,180,886,184,867,184,853,188,844,193,839" shape="poly" class="dist-map" dist="bankura">
+
+
+    <!--13. Hooghly Area -->
+
+    <area alt="Hooghly" title="Hooghly" coords="461,902,457,946,443,942,431,934,422,925,416,951,411,957,398,961,387,949,376,938,373,926,364,923,350,916,338,908,330,901,340,901,346,901,353,898,357,890,367,886,373,886,378,890,385,894,393,895,400,895,407,891,414,890,425,888,433,887,439,882,445,874,449,869,455,861,459,852,466,848,473,848,484,852,489,854,497,850,503,845,507,850,511,857,513,862,513,870,513,877,515,882,520,887,521,895,513,895,507,898,503,903,503,910,500,917,497,925,495,933,496,938,495,944,487,946,481,946,473,946,465,946,460,940" shape="poly" class="dist-map" dist="hooghly">
+
+    <!-- 14. North 24 Parganas Area -->
+
+     <area alt="North 24 Parganas" title="North 24 Parganas" coords="585,983,537,965,519,953,505,945,497,937,498,923,502,913,506,904,516,896,526,897,537,897,545,900,552,900,557,887,557,876,559,867,559,858,560,852,562,845,563,838,569,838,576,838,580,841,586,841,593,839,601,840,609,845,617,844,613,849,609,854,605,860,600,864,597,872,597,879,597,886,597,892,595,897,601,900,602,908,605,912,609,916,613,921,611,928,607,934,605,944,607,950,611,953,606,962,609,970,609,980,613,989,617,1001,617,1016,618,1009,617,1024,620,1033,621,1041,624,1049,627,1053,631,1057,633,1066,636,1071,629,1077,629,1083,629,1091,633,1095,633,1103,634,1110,628,1113,622,1117,618,1125,622,1129,623,1138,623,1146,626,1153,629,1158,632,1164,634,1170,637,1176,629,1178,620,1175,614,1177,606,1175,598,1168,597,1153,590,1153,589,1158,589,1164,590,1174,581,1172,569,1169,565,1158,565,1149,566,1134,566,1117,568,1107,573,1098,574,1089,574,1080,574,1068,573,1057,576,1049,578,1041,578,1030,573,1021,569,1008,563,1001,557,992,552,981,546,972" shape="poly" class="dist-map" dist="north-24-parganas">
+
+    <!--15. Pashchim Medinipur Area -->
+
+    <area alt="Pashchim Medinipur" title="Pashchim Medinipur" coords="312,991,245,919,259,916,267,909,277,905,285,903,293,895,306,895,314,895,324,899,330,905,338,909,344,914,353,920,362,927,371,927,372,936,373,942,378,946,386,950,389,958,389,967,393,978,385,983,377,988,357,990,351,996,351,1006,351,1015,353,1022,363,1023,362,1035,364,1043,362,1050,362,1060,353,1067,338,1068,325,1069,320,1077,319,1084,320,1095,318,1106,315,1118,313,1129,313,1136,294,1131,283,1125,273,1113,274,1096,267,1084,258,1072,264,1053,265,1043,273,1027,271,1019,277,1005,268,1005,253,996,248,984,250,971,251,955,251,944,247,931,252,928" shape="poly" class="dist-map" dist="pashchim-medinipur">
+
+    <!-- 16. Howrah Area -->
+
+    <area alt="Howrah" title="Howrah" coords="437,975,416,954,416,943,417,926,424,926,436,939,453,945,464,947,473,947,483,947,492,947,494,951,491,964,485,971,478,979,465,983,457,988,450,998,445,1014,443,1027,443,1041,436,1049,427,1041,421,1030,416,1015,410,1001,405,987,394,971,401,960,410,957,418,959" shape="poly" class="dist-map" dist="howrah">
+
+    <!-- 17. Kolkata rea -->
+
+    <area alt="Kolkata" title="Kolkata" coords="507,969,511,983,518,985,522,979,526,971,524,962,518,953,509,948,496,946,496,957,493,966,487,978,492,985,500,987,506,988,513,984" shape="poly" class="dist-map" dist="kolkata">
+
+    <!-- 18. South 24 Parganas Area -->
+
+    <area alt="South 24 Parganas" title="South 24 Parganas" coords="471,1098,468,1065,458,1057,447,1058,440,1052,445,1042,443,1028,445,1012,456,991,470,987,482,979,487,983,494,988,502,992,508,985,517,985,524,976,529,962,536,968,546,976,552,987,557,999,566,1007,573,1019,578,1031,575,1043,570,1054,575,1072,570,1087,569,1098,536,1195,510,1175,479,1194,443,1175,445,1146,446,1118" shape="poly" dist="south-24-parganas" class="dist-map">
+
+    <!-- 19. Purbo Medinipur Area -->
+
+    <area alt="Purbo Medinipur" title="Purbo Medinipur" coords="389,1093,363,1059,367,1047,362,1039,364,1027,365,1019,355,1017,354,1003,355,991,361,987,367,987,373,988,382,987,392,984,400,985,404,995,407,1004,410,1011,414,1015,419,1039,425,1047,433,1055,445,1061,456,1063,462,1072,461,1078,455,1088,444,1095,437,1100,425,1126,420,1134,408,1139,401,1148,392,1158,379,1166,365,1171,337,1178,325,1162,321,1141,313,1130,317,1114,320,1103,321,1090,322,1080,326,1072,333,1070,344,1070,351,1070,359,1068,364,1065" shape="poly" dist="purbo-medinipur" class="dist-map">
+
+    <!-- 20. Kalimpong Area -->
+
+    <area  alt="Kalimpong" title="Kalimpong" coords="513,28,514,35,514,45,518,54,520,62,526,68,530,72,536,69,543,66,545,59,551,51,556,55,562,59,567,55,571,48,579,44,586,42,592,43,598,39,597,33,593,28,585,22,577,20,565,18,553,13,541,13,531,13,525,18,518,22" shape="poly" dist="kalimpong" class="dist-map">
+
+    <!-- 21. Alipurduar Area -->
+
+     <area  alt="Alipurduar" title="Alipurduar" coords="700,120,641,79,638,85,635,91,636,98,633,107,636,113,642,115,642,122,648,127,645,134,648,141,656,144,665,147,672,148,680,150,688,148,696,145,702,145,711,147,717,153,722,160,729,161,735,166,740,163,748,158,755,158,763,158,773,156,779,154,780,145,782,136,781,129,778,121,780,113,777,106,768,102,757,100,741,100,742,93,734,86,727,82,718,82,709,83,702,78,694,76,686,74,677,78,671,81,662,80,656,82,650,83,654,89" shape="poly" dist="alipurduar" class="dist-map">
+
+     <!--22. Paschim Bardhawman Area -->
+
+    <area alt="Paschim Bardhaman" title="Paschim Bardhaman" coords="267,748,254,760,245,753,233,753,220,748,201,738,190,732,189,723,193,716,197,710,199,701,209,701,217,703,225,710,233,714,243,720,253,728,263,730,273,732,282,734,290,734,295,738,301,744,308,752,315,757,322,764,333,766,341,766,340,773,337,779,334,787,336,792,331,796,327,801,325,807,316,800,309,794,302,789,293,782,284,776,276,772,266,768,259,760" shape=poly dist="paschim-bardhaman" class="dist-map">
+
+    <!-- 23. Jhargram Area -->
+
+     <area alt="Jhargram" title="Jhargram" coords="229,1020,206,1026,199,1013,193,1004,183,995,187,984,184,973,175,966,163,961,156,948,152,938,159,930,163,924,171,928,177,932,185,935,190,940,197,943,203,949,210,955,217,956,224,953,226,947,229,956,235,956,237,947,244,944,249,943,251,951,248,960,248,969,248,976,246,985,245,992,250,997,254,1004,260,1005,266,1005,274,1008,275,1013,269,1018,269,1026,272,1031,274,1037,268,1041,261,1048,261,1055,260,1061,254,1068,261,1079,266,1086,272,1098,269,1105,261,1098,257,1105,249,1111,250,1119,241,1117,233,1112,233,1099,236,1091,236,1083,229,1075,217,1071,209,1068,199,1068,190,1060,181,1056,185,1048,189,1042,195,1038,199,1035,205,1036,210,1034,211,1025" shape="poly" class="dist-map" dist="jhargram">
+
+
+
+
+
+</map>
+
+    <div id="chart-container" style="width:90%;margin:0 auto;min-height:300px;"></div>
+
+
+
+        <table id="data-header" cellpadding="15"><tr>
+
+                <th>Location</th>
+                <th>Total</th>
+                <th>Active</th>
+                <th>Recovered</th>
+                <th>Deaths</th>
+                <th>Last Case</th>
+
+            </tr></table>
+
+
+        <table cellpadding="15" id="stats-table"> </table>
+
+        <div style="padding: 50px;">
+
+            <h4>About this data</h4>
+
+            <p style="font-size: 12px;"><span><b>It's taken from <a href="https://www.wbhealth.gov.in/pages/corona/bulletin" target="_blank">wbhealth.gov.in</a></b></span></p>
+
+            <h4>Developed By</h4>
+
+            <p style="font-size: 12px"><span><b>Amit Roy</b></span><br>Mechanical Engineering<br>Durgapur Institute of Advanced Technology and Management<br>2023 Batch<br><a href="mailto:amit@wbcovid19.online?Subject=" target="_top">mail : amit@wbcovid19.online</a></p>
+
+        </div>
+
+        <div style="margin-bottom: 20px;text-align: center;"><a style="font-size: 12px" href="mailto:feedback@wbcovid19.online?Subject=feedback" target="_top">Send feedback<br>mail : feedback@wbcovid19.online</a></div>
+
+
+
+
+
+    </body>
+
+
+    <script>
+
+
+    function setFontSizes() {
+
+      var width = window.outerWidth;
+      console.log(width);
+      if(width<550) {
+
+        var fs = 16 + (550-width)*0.03;
+        $("#stats-table").css('font-size',fs+'px');
+        fs = 16 - (550-width)*0.02;
+        $('div>h4').css('font-size',fs+'px');
+
+      } else $("#stats-table, div>h4").css('font-size','16px');
+
+      if(width<420) {
+
+        var fs = 12 - (420-width)*0.02;
+        $('div>h4').next().css('font-size',fs+'px');
+
+      } else $('div>h4').next().css('font-size','12px');
+
+
+
+    }
+    setFontSizes();
+    $(window).resize(setFontSizes);
+
+
+
+
+
+    // fill districs data in the required positions
+
+    $.ajax({
+
+      type:'GET',
+      url: 'https://hereisroy.pythonanywhere.com/districts/',
+      success: function(data) {
+
+
+        // setting map data
+
+        data.forEach((item, i) => {
+
+
+
+          if(i>0 && i<(data.length-1)) {
+
+            var key = item.name.toLowerCase().split(' ').join('-');
+            if(key=='coochbehar') key = 'cooch-behar';
+            if(key=='paschim-medinipur') key = 'pashchim-medinipur';
+            if(key=='purba-medinipur') key = 'purbo-medinipur';
+            console.log(key);
+            var boxId = "#"+key+"-status-box";
+            $(boxId).find("span:nth(0)").html(item.active);
+            $(boxId).find("span:nth(1)").html(item.recovered);
+            $(boxId).find("span:nth(2)").html(item.deaths);
+
+            var imgId = "#"+key+"-hover";
+            var properImg = "data/hover/"+key+"/"+key+".hover.";
+            if(item.active==0) properImg += "green." + extension ;
+            else if (item.active<10) properImg += "yellow." + extension ;
+            else properImg += "red." + extension;
+            $(imgId).attr("src",properImg);
+
+          }
+
+        });
+
+        // creating table rows
+
+       var os_data = data.shift();
+
+       data.sort(function(x,y){
+
+            return y.total - x.total;
+
+        } );
+
+
+        data.forEach(function(e, i) {
+
+            if(e.zone_type=='g') var zone_color = 'lightgreen';
+            else var zone_color = (e.zone_type == 'o')? 'orange' : '#CD5C5C';
+            if(i==0) var tr = "<tr style='background-color: dodgerblue;'><td style='color:white;'>"+e.name+"</td><td style='color:purple;'>"+e.total+"</td><td style='color:yellow;'>"+e.active+"</td><td style='color:lightgreen;'>"+e.recovered+"</td><td style='color:red;'>"+e.deaths+"</td><td style='color:tomato;'>"+e.last_reported_case+"</td></tr>";
+            else
+            var tr = "<tr style='background-color:"+zone_color+"'><td style='color:black;'>"+e.name+"</td><td>"+e.total+"</td><td>"+e.active+"</td><td>"+e.recovered+"</td><td>"+e.deaths+"</td><td>"+e.last_reported_case+"</td></tr>";
+            $("#stats-table").append(tr);
+
+        })
+
+        var tr = "<tr style='background-color:azure;'><td style='color:black;'>"+os_data.name+"</td><td style='color:black;'>"+os_data.total+"</td><td style='color:black;'>"+os_data.active+"</td><td style='color:black;'>"+os_data.recovered+"</td><td style='color:black;'>"+os_data.deaths+"</td><td style='color:black;'>"+os_data.last_reported_case+"</td></tr>";
+        $("#stats-table").append(tr);
+
+
+      }
+
+
+    });
+
+
+        </script>
+
+      <script src="scripts/magics.js" type="application/javascript"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script>
+
+
+        // Now lets create the google chart
+
+
+        var wvcovid19_total = [];
+        var address =  'https://hereisroy.pythonanywhere.com/total/';
+        $.ajax({
+
+            type:'GET',
+            url: address,
+            success: function(data) {
+
+                wbcovid19_total = [];
+                data.forEach((e, i) => {
+
+                    temp = [];
+                    temp.push(new Date(e.date));
+                    temp.push(e.confirmed);
+                    temp.push(e.active);
+                    temp.push(e.recovered);
+                    temp.push(e.deaths);
+                    wbcovid19_total.push(temp);
+
+                });
+
+
+
+
+
+
+                google.charts.load('current', {packages: ['corechart', 'line']});
+                google.charts.setOnLoadCallback(drawBackgroundColor);
+
+                function drawBackgroundColor() {
+                      var data = new google.visualization.DataTable();
+
+                     	data.addColumn('date', 'X');
+                     data.addColumn('number', 'Confirmed');
+                      data.addColumn('number', 'Active');
+                      data.addColumn('number', 'Recovered');
+                      data.addColumn('number', 'Deaths');
+
+                      data.addRows(wbcovid19_total);
+
+                      var options = {
+                        hAxis: {
+
+                          gridlines: {
+                          color: 'transparent'
+                        },
+                        },
+                        vAxis: {
+                          gridlines: {
+                          count: 2
+                        },
+                        },
+                        backgroundColor: '#f1f8e9',
+                        'legend':'bottom',
+                        series: {
+                            0: { color: '#43459d' },
+                            1: { color: '#f1ca3a' },
+                            2: { color: '#6f9654' },
+                            3: { color: '#e2431e' }
+                          },
+                        backgroundColor: 'transparent',
+                        chartArea: {'right':10,'top':20,'width': '95%', 'height': '60%'},
+                        title: "West Bengal COVID19 Chart",
+
+
+                      };
+
+                      var chart = new google.visualization.LineChart(document.getElementById('chart-container'));
+                      chart.draw(data, options);
+                      $(window).resize(function(){
+                          chart.draw(data, options);
+                          });
+
+                    }
+            }
+
+        })
+
+
+
+
+    </script>
+
+
+
+
+
+</html>
